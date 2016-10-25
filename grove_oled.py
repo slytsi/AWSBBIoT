@@ -222,8 +222,8 @@ if __name__=="__main__":
     oled_init()
     oled_setNormalDisplay()
     oled_setTextXY(0,0)
-    oled_putString("Hello")
+    oled_putString("AWS OSMC PROJECT re:Invent 2016")
     time.sleep(10)
     #Oled.write8(Command_Mode,0xFD)
     #sendCommand(0xFD)
-    print 'hello world'
+    print 'AWS OSMC PROJECT re:Invent 2016'

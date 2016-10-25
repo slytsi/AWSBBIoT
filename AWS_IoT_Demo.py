@@ -1,6 +1,4 @@
-#  sudu pip install requests
-# This is a demo by Kevin Lee
-import requests
+#import requests
 import time
 import grove_temperature_sensor
 import grove_oled
@@ -8,9 +6,6 @@ import Adafruit_BBIO.GPIO as GPIO
 import random
 from adxl345 import ADXL345
 
-#dweetIO = "https://dweet.io/dweet/for/"
-#myName = "BBG_IoT_Demo"
-#myKey = "Temperature"
 
 Buzzer = "P9_22"            # UART2_RXD P9_22
 GPIO.setup(Buzzer, GPIO.OUT)
@@ -41,11 +36,11 @@ if __name__=="__main__":
         grove_oled.oled_setTextXY(0,0)
         grove_oled.oled_putString("AWS IoT OSMC")
         grove_oled.oled_setTextXY(1,0)
-        grove_oled.oled_putString("Engine")
+        grove_oled.oled_putString("Engine Stats")
         grove_oled.oled_setTextXY(2,0)
         grove_oled.oled_putString('Temp:{0:0.1f}'.format(temp_f))
         grove_oled.oled_setTextXY(3,0)
-        grove_oled.oled_putString('RPM:{0:0.1f} '.format(rpm))
+        grove_oled.oled_putString('RPM:{0:0.1f}'.format(rpm))
         grove_oled.oled_setTextXY(4,0)
         grove_oled.oled_putString('Fuel:{0:0.1f}'.format(fuellevel))
         grove_oled.oled_setTextXY(5,0)
@@ -55,7 +50,12 @@ if __name__=="__main__":
         grove_oled.oled_setTextXY(7,0)
         grove_oled.oled_putString('Lean Z:{0:0.1f}'.format(zVal))
         #Show something to the console
-        print 'Temp \n {0:0.2f} *C'.format(temp_f)
+        print 'Temp \n {0:0.2f} degrees'.format(temp_f)
+        print 'RPM: {0:0.1f}'.format(rpm)
+        print 'Fuel Level:{0:0.1f}' .format(fuellevel)
+        print 'X Angle:{0:0.1f}' .format(xVal)
+        print 'Y Angle:{0:0.1f}' .format(yVal)
+        print 'Z Angle:{0:0.1f}'.format(zVal)
         #Check for High Temperature
         if temperature >= THRESHOLD_TEMPERATURE :
             GPIO.output(Buzzer,GPIO.HIGH)
